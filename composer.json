@@ -1,5 +1,5 @@
 {
-    "name": "sumanpoudel/egnyte",
+    "name": "suman/egnyte",
     "description": "Egnyte filesystem API with League filesystem",
     "keywords": [
         "Flystem",
@@ -15,8 +15,10 @@
         }
     ],
     "require": {
-        "php" : ">=5.3.0",
-        "guzzlehttp/guzzle": "~6.0"
+        "php" : ">=7.0.0",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "~6.0",
+        "league/flysystem": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit" : "4.*"

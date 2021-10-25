@@ -1,30 +1,44 @@
-# League Skeleton
+# Egnyte Filesystem
 
-[![Latest Version](https://img.shields.io/github/release/thephpleague/skeleton.svg?style=flat-square)](https://github.com/thephpleague/skeleton/releases)
+[![Latest Version](https://img.shields.io/github/release/thephpleague/skeleton.svg?style=flat-square)](https://github.com/thepartnership-suman/egnyte)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/thephpleague/skeleton/master.svg?style=flat-square)](https://travis-ci.org/thephpleague/skeleton)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/thephpleague/skeleton.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpleague/skeleton/code-structure)
-[![Quality Score](https://img.shields.io/scrutinizer/g/thephpleague/skeleton.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpleague/skeleton)
-[![Total Downloads](https://img.shields.io/packagist/dt/league/skeleton.svg?style=flat-square)](https://packagist.org/packages/league/skeleton)
+[![Total Downloads](https://img.shields.io/packagist/dt/league/skeleton.svg?style=flat-square)](https://packagist.org/packages/sumanpoudel/egnyte)
 
-**Note:** Replace `skeleton` with the correct package name in the above URLs, then delete this line.
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
+I was working on Egnyte project for Laravel and didn't find any decent solution
+so decided to write my own. Inspired by Yespbs\Egnyte.
 
 ## Install
 
 Via Composer
 
 ``` bash
-$ composer require league/skeleton
+$ composer require sumanpoudel/egnyte
 ```
 
 ## Usage
 
 ``` php
-$skeleton = new League\Skeleton();
-echo $skeleton->echoPhrase('Hello, League!');
+$client = new \Suman\Egnyte\Model\File(EgnyteDomain, OAuthToken);
+
+$adapter = new \Suman\Egnyte\EgnyteAdapter($client);
+
+$filesystem = new Filesystem($adapter);
+
+//to get the content of the file
+$fileContents = $filesystem->get('/Shared/file.jpg');
+//to check file exists
+$fileContents = $filesystem->has('file.jpg');
+//upload the file
+$fileContents = $filesystem->put(fileLocation, contents_of_file);
+//move the file 
+$fileContents = $filesystem->move(originalLocation, newLocation);
+//delete the file/folder
+$fileContents = $filesystem->delete(location_of_file_or_folder);
+
+// see the usrl below for more functions 
+https://flysystem.thephpleague.com/v2/docs/usage/filesystem-api/
+
 ```
 
 ## Testing
@@ -33,14 +47,10 @@ echo $skeleton->echoPhrase('Hello, League!');
 $ phpunit
 ```
 
-## Contributing
-
-Please see [CONTRIBUTING](https://github.com/thephpleague/:package_name/blob/master/CONTRIBUTING.md) for details.
-
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
-- [All Contributors](https://github.com/thephpleague/:package_name/contributors)
+- [:author_name](https://github.com/thepartnership-suman/egnyte:author_username)
+- [All Contributors](https://github.com/thepartnership-suman/:egnyte/contributors)
 
 ## License
 
