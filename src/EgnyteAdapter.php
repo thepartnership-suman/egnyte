@@ -176,7 +176,8 @@ class EgnyteAdapter extends AbstractAdapter
     public function listContents($directory = '', $recursive = false): array
     {
         $path   = $this->applyPathPrefix($directory);
-        $result = $this->client->listFolder($path, $recursive);
+        //$recursive set true by default otherwise Egnyte only returns folder info
+        $result = $this->client->listFolder($path, true);
         $result = json_decode($result->getBody(), true);
 
         return array_merge(
