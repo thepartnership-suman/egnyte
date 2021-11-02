@@ -177,7 +177,12 @@ class EgnyteAdapter extends AbstractAdapter
     {
         $path   = $this->applyPathPrefix($directory);
         $result = $this->client->listFolder($path, $recursive);
-        return json_decode($result->getBody(), true);
+        $result = json_decode($result->getBody(), true);
+
+        return array_merge(
+            array_map([$this, 'removePathPrefixForFile'], $result['folders']),
+            array_map([$this, 'removePathPrefixForFile'], $result['files'])
+        );
     }
 
     /**
