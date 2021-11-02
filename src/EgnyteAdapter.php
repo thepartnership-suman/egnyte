@@ -185,6 +185,12 @@ class EgnyteAdapter extends AbstractAdapter
         );
     }
 
+    private function removePathPrefixForFile($folder)
+    {
+        $folder['path'] = trim($folder, '/');
+        return $folder;
+    }
+
     /**
      * {@inheritdoc}
      */
