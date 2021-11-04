@@ -181,8 +181,8 @@ class EgnyteAdapter extends AbstractAdapter
         $result = json_decode($result->getBody(), true);
 
         return array_merge(
-            array_map([$this, 'removePathPrefixForFile'], $result['folders']),
-            array_map([$this, 'removePathPrefixForFile'], $result['files'])
+            isset($result['folders']) ? array_map([$this, 'removePathPrefixForFile'], $result['folders']) : [],
+            isset($result['files']) ? array_map([$this, 'removePathPrefixForFile'], $result['files']) : []
         );
     }
 
