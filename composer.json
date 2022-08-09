@@ -5,7 +5,7 @@
         "Flystem",
         "egnyte"
     ],
-    "homepage": "https://github.com/php-loep/:package_name",
+    "homepage": "https://github.com/thepartnership-suman/egnyte",
     "license": "MIT",
     "authors": [
         {
@@ -15,13 +15,13 @@
         }
     ],
     "require": {
-        "php" : ">=7.0.0",
+        "php" : "^7.3|^8.0",
         "ext-json": "*",
-        "guzzlehttp/guzzle": "~6.0",
+        "guzzlehttp/guzzle": "^7.0.1",
         "league/flysystem": "^1.0"
     },
     "require-dev": {
-        "phpunit/phpunit" : "~4.0"
+        "phpunit/phpunit": "^9.5.10"
     },
     "autoload": {
         "psr-4": {
